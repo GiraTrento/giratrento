@@ -1,6 +1,6 @@
 import React from 'react';
 import './TopBar.css';
-import logo from './assets/react.svg';
+import logo from './assets/LogoGiraTrento.svg';
 
 const TopBar = () => {
   return (
@@ -14,7 +14,7 @@ const TopBar = () => {
       </div>
 
       <div className='bar-section right'>
-        <button onClick={() => console.log('Destra')}>Login</button>
+        <button onClick={() => console.log('Destra')}>Filters</button>
       </div>
     </header>
   );

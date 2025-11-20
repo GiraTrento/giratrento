@@ -1,16 +1,17 @@
 .top-bar {
-  background-color: #ff8c00; /* Arancione scuro (puoi usare orange o #ffa500) */
-  height: 60px; /* Altezza fissa */
-  display: flex; /* Abilita Flexbox */
-  align-items: center; /* Centra verticalmente gli elementi */
-  padding: 0 20px; /* Spazio laterale interno */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombreggiatura opzionale */
-  position: fixed; /* (Opzionale) Fissa la barra in alto */
+  background-color: #ffc676;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin: 0;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Ombreggiatura opzionale */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /* Assicura che stia sopra gli altri elementi */
-  box-sizing: border-box; /* Include il padding nella larghezza totale */
+  z-index: 9999;
+  box-sizing: border-box;
 }
 
 .bar-section {
@@ -33,7 +34,7 @@
 }
 
 .app-logo {
-  height: 40px; /* Adatta l'altezza del logo */
+  height: 54px; /* Adatta l'altezza del logo */
   width: auto;
   cursor: pointer;
 }
