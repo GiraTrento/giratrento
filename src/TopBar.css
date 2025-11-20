@@ -1,0 +1,53 @@
+.top-bar {
+  background-color: #ff8c00; /* Arancione scuro (puoi usare orange o #ffa500) */
+  height: 60px; /* Altezza fissa */
+  display: flex; /* Abilita Flexbox */
+  align-items: center; /* Centra verticalmente gli elementi */
+  padding: 0 20px; /* Spazio laterale interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombreggiatura opzionale */
+  position: fixed; /* (Opzionale) Fissa la barra in alto */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Assicura che stia sopra gli altri elementi */
+  box-sizing: border-box; /* Include il padding nella larghezza totale */
+}
+
+.bar-section {
+  display: flex;
+  align-items: center;
+}
+
+.bar-section.left {
+  flex: 1;
+  justify-content: flex-start; /* Allinea il tasto a sinistra */
+}
+
+.bar-section.right {
+  flex: 1;
+  justify-content: flex-end; /* Allinea il tasto a destra */
+}
+
+.bar-section.center {
+  flex: 0; /* Il logo occupa solo il suo spazio naturale */
+}
+
+.app-logo {
+  height: 40px; /* Adatta l'altezza del logo */
+  width: auto;
+  cursor: pointer;
+}
+
+button {
+  background-color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ff8c00;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
