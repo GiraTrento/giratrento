@@ -1,6 +1,6 @@
 import React from 'react';
 import './TopBar.css';
-import logo from './assets/LogoGiraTrento.svg';
+import logo from '../assets/LogoGiraTrento.svg';
 
 const TopBar = () => {
   return (
