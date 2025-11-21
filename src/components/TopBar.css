@@ -1,11 +1,11 @@
 .top-bar {
-  background-color: #C74608;
+  background-color: #c24509;
   height: 60px;
   display: flex;
   align-items: center;
   padding: 0 20px;
   margin: 0;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Ombreggiatura opzionale */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -21,34 +21,27 @@
 
 .bar-section.left {
   flex: 1;
-  justify-content: flex-start; /* Allinea il tasto a sinistra */
+  justify-content: flex-start;
 }
 
 .bar-section.right {
   flex: 1;
-  justify-content: flex-end; /* Allinea il tasto a destra */
+  justify-content: flex-end;
 }
 
 .bar-section.center {
-  flex: 0; /* Il logo occupa solo il suo spazio naturale */
+  flex: 0;
 }
 
 .app-logo {
-  height: 54px; /* Adatta l'altezza del logo */
+  height: 54px;
   width: auto;
-  cursor: pointer;
+  cursor: default;
 }
 
 button {
-  background-color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #ff8c00;
-}
-
-button:hover {
-  background-color: #f0f0f0;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
 }
