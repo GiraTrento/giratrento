@@ -2,11 +2,11 @@ import React from 'react';
 import './TopBar.css';
 import logo from '../assets/LogoGiraTrento.svg';
 
-const TopBar = () => {
+const TopBar = ({ onOpenMenu, onOpenFilters }) => {
   return (
     <header className='top-bar'>
       <div className='bar-section left'>
-        <button className='menu-btn' onClick={() => console.log('Menu Button')}>
+        <button className='menu-btn' onClick={onOpenMenu}>
           <svg
             width='44'
             height='40'
@@ -30,7 +30,7 @@ const TopBar = () => {
       </div>
 
       <div className='bar-section right'>
-        <button className='filters-btn' onClick={() => console.log('Filters Button')}>
+        <button className='filters-btn' onClick={onOpenFilters}>
           <svg
             width='44'
             height='40'
