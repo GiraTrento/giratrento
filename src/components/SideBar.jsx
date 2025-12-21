@@ -9,7 +9,7 @@ const negozi = Array.from({ length: 20 }, (_, i) => ({
   categoria: i % 2 === 0 ? 'Pizzeria' : 'Bar',
 }));
 
-const Sidebar = () => {
+const Sidebar = ({ openStoreCard }) => {
   return (
     <div className='sidebar-container'>
       <div className='sidebar-header'>
@@ -19,7 +19,7 @@ const Sidebar = () => {
       </div>
       <div className='sidebar-list'>
         {negozi.map((negozio) => (
-          <div key={negozio.id} className='shop-card'>
+          <div key={negozio.id} className='shop-card' onClick={() => openStoreCard(negozio.id)}>
             <h4>{negozio.nome}</h4>
             <p className='shop-address'>{negozio.indirizzo}</p>
             <span className='shop-category'>{negozio.categoria}</span>

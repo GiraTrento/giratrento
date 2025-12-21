@@ -8,9 +8,12 @@ import SideBar from './components/SideBar.jsx';
 function App() {
   return (
     <div className='app-layout'>
-      <TopBar />
+      <TopBar
+        openMenu={() => console.log('apertura menu')}
+        openFilters={() => console.log('apertura filtri')}
+      />
       <div style={{ marginTop: '80px' }}>
-        <SideBar />
+        <SideBar openStoreCard={(id) => console.log('apertura negozio ' + id)} />
         <MyMap />
       </div>
     </div>
