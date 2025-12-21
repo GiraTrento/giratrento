@@ -2,16 +2,16 @@
 
 .sidebar-container {
   position: fixed;
-  top: 60px;
+  top: 0;
   left: 0;
   width: 350px;
-  height: calc(100vh - 60px);
+  height: 100%;
 
   /* COLORE SIDEBAR: Verde Scuro */
   background-color: #073b11;
 
   z-index: 5000;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Ombra un po' più scura */
+  /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
 
 /* Header che contiene il bottone */
 .sidebar-header {
-  padding: 15px 20px;
+  padding: 15px 20px 15px 100px;
   /* Deve avere lo stesso colore della sidebar per coprire le card che scorrono sotto */
   background-color: #073b11;
   position: sticky;

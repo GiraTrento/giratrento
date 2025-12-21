@@ -1,47 +1,139 @@
+:root {
+  --bar-color: #c24509;
+  --curve-size: 20px;
+}
+
 .top-bar {
-  background-color: #c24509;
-  height: 60px;
+  /*  background-color: #c24509;
+* height: 60px;
+*/
   display: flex;
   align-items: center;
   padding: 0 20px;
   margin: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
+
+  display: flex;
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  padding: 0;
+  height: 0;
+
   box-sizing: border-box;
+
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));
+
+  overflow: visible !important;
 }
 
 .bar-section {
+  background-color: var(--bar-color);
+
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  padding: 10px 25px;
+
+  height: 70px;
+  box-sizing: border-box;
 }
 
 .bar-section.left {
-  flex: 1;
-  justify-content: flex-start;
+  border-radius: 0 0 30px 0;
+  padding-left: 15px;
+  position: relative;
+}
+
+.bar-section.left::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: calc(var(--curve-size) * -1);
+  width: var(--curve-size);
+  height: var(--curve-size);
+  background-color: transparent;
+  background-image: radial-gradient(circle at bottom right, transparent 70%, var(--bar-color) 71%);
 }
 
 .bar-section.right {
-  flex: 1;
-  justify-content: flex-end;
+  border-radius: 0 0 0 30px;
+  padding-right: 15px;
+  position: relative;
+}
+
+.bar-section.right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(var(--curve-size) * -1);
+  width: var(--curve-size);
+  height: var(--curve-size);
+  background-color: transparent;
+  background-image: radial-gradient(circle at bottom left, transparent 70%, var(--bar-color) 71%);
 }
 
 .bar-section.center {
-  flex: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: 90px;
+  height: 90px;
+  border-radius: 0 0 60px 60px;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  padding-bottom: 12px;
+  box-sizing: border-box;
+
+  overflow: visible !important;
+}
+
+.bar-section.center::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(var(--curve-size) * -1);
+  width: var(--curve-size);
+  height: var(--curve-size);
+  background-color: transparent;
+
+  background-image: radial-gradient(circle at bottom left, transparent 70%, var(--bar-color) 71%);
+}
+
+.bar-section.center::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: calc(var(--curve-size) * -1);
+  width: var(--curve-size);
+  height: var(--curve-size);
+  background-color: transparent;
+
+  background-image: radial-gradient(circle at bottom right, transparent 70%, var(--bar-color) 71%);
 }
 
 .app-logo {
-  height: 54px;
+  height: 70px;
   width: auto;
   cursor: default;
+  pointer-events: none;
 }
 
 button {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 }
