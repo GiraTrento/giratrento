@@ -4,18 +4,22 @@ import React from 'react';
 import MyMap from './components/Map.jsx';
 import TopBar from './components/TopBar.jsx';
 import SideBar from './components/SideBar.jsx';
+import MenuBar from './components/MenuBar.jsx';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className='app-layout'>
       <TopBar
-        openMenu={() => console.log('apertura menu')}
+        openMenu={() => setIsMenuOpen(true)}
         openFilters={() => console.log('apertura filtri')}
       />
-      <div style={{ marginTop: '80px' }}>
-        <SideBar openStoreCard={(id) => console.log('apertura negozio ' + id)} />
-        <MyMap />
-      </div>
+      <SideBar openStoreCard={(id) => console.log('apertura negozio ' + id)} />
+
+      <MyMap />
+
+      <MenuBar isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </div>
   );
 }

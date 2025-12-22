@@ -1,5 +1,3 @@
-/* Sidebar.css */
-
 .sidebar-container {
   position: fixed;
   top: 0;
@@ -7,37 +5,31 @@
   width: 350px;
   height: 100%;
 
-  /* COLORE SIDEBAR: Verde Scuro */
   background-color: #073b11;
 
   z-index: 5000;
-  /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
-/* Header che contiene il bottone */
 .sidebar-header {
-  padding: 15px 20px 15px 100px;
-  /* Deve avere lo stesso colore della sidebar per coprire le card che scorrono sotto */
+  padding: 15px 20px 15px 106px;
   background-color: #073b11;
   position: sticky;
   top: 0;
   z-index: 10;
-  /* Bordo inferiore color highlight */
   border-bottom: 2px solid #021a05;
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));
 }
 
-/* Stile del bottone "Ordina per" */
 .sort-btn {
   width: 100%;
   padding: 10px;
-  /* Sfondo del bottone: uso l'highlight per farlo risaltare sul verde */
   background-color: #c24509;
-  color: #ffe5ac; /* Testo bianco per leggibilità */
+  color: #ffe5ac;
   border: none;
-  border-radius: 6px;
+  border-radius: 16px;
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
@@ -47,7 +39,6 @@
 }
 
 .sort-btn:hover {
-  /* Diventa un po' più chiaro o scuro all'hover */
   background-color: #dc661f;
 }
 
@@ -55,48 +46,41 @@
   padding: 15px;
 }
 
-/* --- STILE CARD NEGOZIO --- */
 .shop-card {
-  /* COLORE CARD: Arancione Chiaro */
   background-color: #ffe5ac;
 
-  /* CONTORNO: Arancione Ruggine */
   border: 2px solid #c24509;
 
   padding: 15px;
   margin-bottom: 12px;
-  border-radius: 8px;
+  border-radius: 16px;
   cursor: pointer;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
 
-  /* Il testo deve essere scuro per leggibilità su sfondo arancione */
   color: #073b11;
 }
 
 .shop-card:hover {
-  /* Effetto "Lift" */
   transform: translateY(-3px);
-  /* Ombra colorata */
   box-shadow: 0 5px 0 #c24509;
 }
 
 .shop-card h4 {
   margin: 0 0 5px 0;
   font-size: 18px;
-  color: #073b11; /* Titolo verde scuro */
+  color: #073b11;
 }
 
 .shop-address {
-  color: #4a3b22; /* Marrone scuro per l'indirizzo */
+  color: #4a3b22;
   font-size: 14px;
   margin: 5px 0 10px 0;
 }
 
 .shop-category {
   display: inline-block;
-  /* Etichetta invertita: Sfondo scuro, testo chiaro */
   background-color: #c24509;
   color: white;
 
@@ -105,16 +89,14 @@
   border-radius: 20px;
   font-weight: bold;
 }
-
-/* --- SCROLLBAR PERSONALIZZATA (Per stare bene col verde) --- */
 .sidebar-container::-webkit-scrollbar {
   width: 10px;
 }
 .sidebar-container::-webkit-scrollbar-track {
-  background: #052b0c; /* Verde ancora più scuro per la pista */
+  background: #052b0c;
 }
 .sidebar-container::-webkit-scrollbar-thumb {
-  background-color: #c24509; /* La barra di scorrimento è color highlight */
+  background-color: #c24509;
   border-radius: 5px;
-  border: 2px solid #073b11; /* Bordo per staccarla */
+  border: 2px solid #073b11;
 }

@@ -49,7 +49,7 @@
 }
 
 .bar-section.left {
-  border-radius: 0 0 30px 0;
+  border-radius: 0 0 40px 0;
   padding-left: 15px;
   position: relative;
 }
@@ -66,7 +66,7 @@
 }
 
 .bar-section.right {
-  border-radius: 0 0 0 30px;
+  border-radius: 0 0 0 40px;
   padding-right: 15px;
   position: relative;
 }
@@ -89,7 +89,7 @@
   top: 0;
   width: 90px;
   height: 90px;
-  border-radius: 0 0 60px 60px;
+  border-radius: 0 0 40px 40px;
   display: flex;
   justify-content: center;
 

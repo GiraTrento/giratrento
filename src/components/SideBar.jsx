@@ -9,7 +9,7 @@ const negozi = Array.from({ length: 20 }, (_, i) => ({
   categoria: i % 2 === 0 ? 'Pizzeria' : 'Bar',
 }));
 
-const Sidebar = ({ openStoreCard }) => {
+const SideBar = ({ openStoreCard }) => {
   return (
     <div className='sidebar-container'>
       <div className='sidebar-header'>
@@ -30,4 +30,4 @@ const Sidebar = ({ openStoreCard }) => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
