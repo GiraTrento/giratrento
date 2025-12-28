@@ -4,14 +4,10 @@
 }
 
 .top-bar {
-  /*  background-color: #c24509;
-* height: 60px;
-*/
   display: flex;
   align-items: center;
   padding: 0 20px;
   margin: 0;
-  /*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   position: fixed;
   top: 0;
   left: 0;
@@ -28,7 +24,6 @@
 
   box-sizing: border-box;
 
-  /*filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));*/
 
   overflow: visible !important;
 }
@@ -36,7 +31,6 @@
 .bar-section {
   background-color: var(--bar-color);
 
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
 
   display: flex;
   align-items: center;
@@ -150,4 +144,40 @@ button {
   background: none;
   padding: 0;
   cursor: pointer;
+}
+
+.icon-svg {
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center; /* Ruota attorno al centro esatto */
+}
+
+.icon-original,
+.icon-close {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transform-origin: center;
+}
+
+.icon-original {
+  opacity: 1;
+  transform: scale(1);
+}
+.icon-close {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
+
+.bar-section.moved .icon-svg {
+  transform: rotate(180deg);
+}
+
+.bar-section.moved .icon-original {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.bar-section.moved .icon-close {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
