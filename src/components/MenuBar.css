@@ -30,7 +30,7 @@
 
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
 
-  padding-top: 100px;
+  padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
   box-sizing: border-box;
@@ -40,18 +40,80 @@
   transform: translateX(0);
 }
 
-.button {
+.account-btn {
   display: block;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 140, 0, 0.3); /* Linea arancione sottile */
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #c24509;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 20px;
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 26px;
   cursor: pointer;
-  transition: color 0.2s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 0.5),
+    box-shadow 0.3s;
 }
 
-.menu-item:hover {
-  color: #ff8c00; /* Diventa arancione al passaggio */
-  padding-left: 10px; /* Piccolo spostamento a destra */
+.account-btn:hover {
+  background-color: #cc4f12;
+  color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 1px rgba(255, 140, 0, 0.2);
+}
+
+.favorites-btn {
+  display: block;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #c24509;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 0.5),
+    box-shadow 0.3s;
+}
+
+.favorites-btn:hover {
+  background-color: #cc4f12;
+  color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 1px rgba(255, 140, 0, 0.2);
+}
+
+.suggest-btn {
+  display: block;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: #c24509;
+  border: 1px solid rgba(255, 140, 0, 0.5);
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 0.5),
+    box-shadow 0.3s;
+}
+
+.suggest-btn:hover {
+  background-color: #cc4f12;
+  color: #ff8c00;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 1px rgba(255, 140, 0, 0.2);
 }
