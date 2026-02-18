@@ -6,10 +6,12 @@ import TopBar from './components/TopBar.jsx';
 import SideBar from './components/SideBar.jsx';
 import MenuBar from './components/MenuBar.jsx';
 import FiltersBar from './components/FiltersBar.jsx';
+import LoginPanel from './components/LoginPanel.jsx';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   return (
     <div className='app-layout'>
@@ -29,9 +31,18 @@ function App() {
 
       <MyMap />
 
-      <MenuBar isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <MenuBar
+        isOpen={isMenuOpen}
+        openLogin={() => {
+          console.log('Opening Login');
+          setIsLoginOpen(true);
+        }}
+        onClose={() => setIsMenuOpen(false)}
+      />
 
       <FiltersBar isOpen={isFiltersOpen} onClose={() => setIsFiltersOpen(false)} />
+
+      <LoginPanel isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );
 }
