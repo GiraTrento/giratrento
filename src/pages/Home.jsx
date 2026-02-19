@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import { useState } from 'react';
 import './Home.css';
 import React from 'react';
@@ -7,13 +6,14 @@ import TopBar from '../components/TopBar.jsx';
 import SideBar from '../components/SideBar.jsx';
 import MenuBar from '../components/MenuBar.jsx';
 import FiltersBar from '../components/FiltersBar.jsx';
+import StoreCard from '../components/StoreCard.jsx';
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-
-  // NUOVO STATO: Tiene traccia della categoria scelta dai filtri
   const [selectedCategory, setSelectedCategory] = useState('');
+
+  const [selectedStore, setSelectedStore] = useState(null);
 
   return (
     <div className='app-layout'>
@@ -30,31 +30,27 @@ function Home() {
         }}
       />
 
-      {/* 1. Passiamo la categoria selezionata alla lista */}
       <SideBar
         selectedCategory={selectedCategory}
-        openStoreCard={(id) => console.log('apertura negozio ' + id)}
+        openStoreCard={(negozio) => setSelectedStore(negozio)}
       />
 
-      {/* 2. Passiamo la categoria selezionata alla mappa */}
       <MyMap selectedCategory={selectedCategory} />
 
       <MenuBar
         isOpen={isMenuOpen}
-        openLogin={() => {
-          console.log('Opening Login');
-          // Nota: qui potresti usare navigate('/login') se hai tolto il popup del login
-        }}
+        openLogin={() => console.log('Opening Login')}
         onClose={() => setIsMenuOpen(false)}
       />
 
-      {/* 3. Passiamo stato e funzione alla barra dei filtri */}
       <FiltersBar
         isOpen={isFiltersOpen}
         onClose={() => setIsFiltersOpen(false)}
         selectedCategory={selectedCategory}
         onSelectCategory={(category) => setSelectedCategory(category)}
       />
+
+      <StoreCard store={selectedStore} onClose={() => setSelectedStore(null)} />
     </div>
   );
 }

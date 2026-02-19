@@ -45,7 +45,7 @@ const SideBar = ({ openStoreCard, selectedCategory }) => {
         <input
           type='text'
           className='search-input'
-          placeholder='Search...'
+          placeholder='Cerca per nome...'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -63,7 +63,7 @@ const SideBar = ({ openStoreCard, selectedCategory }) => {
         {!isLoading &&
           !error &&
           negoziFiltrati.map((negozio) => (
-            <div key={negozio._id} className='shop-card' onClick={() => openStoreCard(negozio._id)}>
+            <div key={negozio._id} className='shop-card' onClick={() => openStoreCard(negozio)}>
               <h4>{negozio.name}</h4>
 
               <p className='shop-address'>{negozio.address || 'Trento'}</p>

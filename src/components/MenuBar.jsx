@@ -22,18 +22,18 @@ const MenuBar = ({ isOpen, onClose, openLogin, openFavorites, openSuggestion }) 
           {user ? (
             <>
               <button className='menubar-btn' onClick={() => navigate('/profile')}>
-                Your Account
+                Il tuo Account
               </button>
               <button className='menubar-btn' onClick={openFavorites}>
-                Favorites
+                Preferiti
               </button>
               <button className='menubar-btn' onClick={() => navigate('/suggest')}>
-                Suggest an Activity
+                Consiglia un'Attività
               </button>
             </>
           ) : (
             <button className='menubar-btn' onClick={() => navigate('/login')}>
-              Login
+              Accedi
             </button>
           )}
         </div>

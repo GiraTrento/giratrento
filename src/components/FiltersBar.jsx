@@ -16,7 +16,7 @@ const FiltersBar = ({ isOpen, onClose, selectedCategory, onSelectCategory }) => 
 
       <div className={`filtersbar ${isOpen ? 'open' : ''}`}>
         <div className='filters-header'>
-          <h2>Select Categories</h2>
+          <h2>Seleziona le Categorie</h2>
         </div>
         <div className='filters-content'>
           {categoriesData.map((cat) => {
@@ -26,14 +26,10 @@ const FiltersBar = ({ isOpen, onClose, selectedCategory, onSelectCategory }) => 
               <button
                 key={cat.name}
                 className='filter-btn category-btn'
-                // Logica Toggle: se ci clicco ed è già selezionato, invio una stringa vuota ('') per resettare il filtro e mostrare tutto
                 onClick={() => onSelectCategory(isSelected ? '' : cat.name)}
                 style={{
-                  // Sfondo pieno se selezionato, altrimenti bianco
                   backgroundColor: isSelected ? cat.color : '#ffffff',
-                  // Testo bianco se selezionato, altrimenti grigio scuro
                   color: isSelected ? '#ffffff' : '#333333',
-                  // Il bordo richiama sempre il colore della categoria
                   borderColor: cat.color,
                   borderWidth: '2px',
                   borderStyle: 'solid',

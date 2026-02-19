@@ -1,0 +1,121 @@
+.store-card-panel {
+  position: fixed;
+  /* Stacco dall'alto e dal basso di 10vh */
+  top: 10vh;
+  height: 80vh; 
+  /* Stacco dalla SideBar (regola il 380px se la tua SideBar è più larga/stretta) */
+  left: 380px; 
+  width: 400px;
+  background-color: #fff9ed;
+  
+  /* Nuovi bordi arrotondati e bordo completo */
+  border: 2px solid #e6cca0;
+  border-radius: 20px;
+  overflow: hidden; /* FONDAMENTALE: impedisce al contenuto di uscire dagli angoli arrotondati */
+  
+  /* Ombra più morbida per far risaltare l'effetto "galleggiante" */
+  box-shadow: 0 10px 40px rgba(194, 69, 9, 0.15);
+  
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  color: #c24509;
+  font-family: 'Inter', sans-serif;
+  animation: slideInCard 0.3s ease-out forwards;
+}
+
+@keyframes slideInCard {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.store-card-header {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-bottom: 2px solid #e6cca0;
+  background-color: #fff9ed;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #c24509;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.close-btn:hover {
+  opacity: 0.8;
+}
+
+.store-badge {
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.store-card-content {
+  padding: 20px;
+  overflow-y: auto; /* Permette lo scorrimento del testo dentro la scheda */
+}
+
+.store-name {
+  font-size: 28px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.store-address {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.store-section {
+  margin-bottom: 30px;
+}
+
+.store-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e6cca0;
+  padding-bottom: 5px;
+}
+
+.store-description {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(230, 204, 160, 0.5);
+}
+
+.review-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e6cca0;
+  margin-bottom: 10px;
+}
+
+.review-rating {
+  font-weight: bold;
+  margin-bottom: 5px;
+}

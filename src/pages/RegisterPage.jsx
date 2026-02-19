@@ -29,12 +29,12 @@ const RegisterPage = () => {
     setError('');
 
     if (!formData.name || !formData.email || !formData.password) {
-      setError('Please complete the form before proceding.');
+      setError('Completa il modulo per procedere.');
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match.');
+      setError('Le password non corrispondono.');
       return;
     }
 
@@ -45,7 +45,6 @@ const RegisterPage = () => {
         name: formData.name,
         email: formData.email,
         password: formData.password,
-        role: 'user', // Impostiamo il ruolo base di default
       });
 
       navigate('/login');
@@ -67,18 +66,18 @@ const RegisterPage = () => {
   return (
     <div className='register-container'>
       <div className='register-card'>
-        <h1 className='register-title'>Create an Account</h1>
-        <p className='register-subtitle'>Join us today</p>
+        <h1 className='register-title'>Crea un Account</h1>
+        <p className='register-subtitle'>Unisciti a noi</p>
 
         <form onSubmit={handleSubmit} className='register-form'>
           <div className='input-group'>
-            <label>Full Name</label>
+            <label>Nome completo</label>
             <input
               type='text'
               name='name'
               value={formData.name}
               onChange={handleChange}
-              placeholder='John Smith'
+              placeholder='Nome Cognome'
             />
           </div>
 
@@ -105,7 +104,7 @@ const RegisterPage = () => {
           </div>
 
           <div className='input-group'>
-            <label>Confirm Password</label>
+            <label>Conferma password</label>
             <input
               type='password'
               name='confirmPassword'
@@ -119,19 +118,19 @@ const RegisterPage = () => {
           {error && <p className='error-message'>{error}</p>}
 
           <button type='submit' className='register-btn'>
-            Register
+            Registrati
           </button>
         </form>
 
         <div className='register-footer'>
-          <p>Already have an account?</p>
+          <p>Hai già un account?</p>
           <button className='link-btn' onClick={() => navigate('/login')}>
-            Login
+            Accedi
           </button>
         </div>
 
         <button className='back-home-btn' onClick={() => navigate('/')}>
-          Return to Home
+          Torna alla Home
         </button>
       </div>
     </div>

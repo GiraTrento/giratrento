@@ -24,7 +24,7 @@ const LoginPage = () => {
     setError('');
 
     if (!formData.email || !formData.password) {
-      setError('Missing email or password.');
+      setError('Email o Password mancanti');
       return;
     }
 
@@ -39,12 +39,11 @@ const LoginPage = () => {
       navigate('/profile');
     } catch (err) {
       if (err.response) {
-        const serverMessage = err.response.data.message || err.response.data.error || 'Credenziali non valide.';
+        const serverMessage =
+          err.response.data.message || err.response.data.error || 'Credenziali non valide.';
         setError(serverMessage);
-        
       } else if (err.request) {
         setError('Impossibile contattare il server. Controlla la tua connessione.');
-        
       } else {
         setError('Si è verificato un errore imprevisto.');
       }
@@ -56,8 +55,8 @@ const LoginPage = () => {
   return (
     <div className='login-page-container'>
       <div className='login-card'>
-        <h1 className='login-title'>Welcome Back!</h1>
-        <p className='login-subtitle'>Log in to continue</p>
+        <h1 className='login-title'>Bentornato!</h1>
+        <p className='login-subtitle'>Accedi per continuare</p>
 
         <form onSubmit={handleSubmit} className='login-form'>
           <div className='input-group'>
@@ -67,7 +66,7 @@ const LoginPage = () => {
               name='email'
               value={formData.email}
               onChange={handleChange}
-              placeholder='Your email address'
+              placeholder='Il tuo indirizzo email'
             />
           </div>
 
@@ -78,30 +77,30 @@ const LoginPage = () => {
               name='password'
               value={formData.password}
               onChange={handleChange}
-              placeholder='Your password'
+              placeholder='La tua password'
             />
           </div>
 
           {error && <p className='error-message'>{error}</p>}
 
           <button type='submit' className='login-btn-page'>
-            Login
+            Accedi
           </button>
         </form>
 
         <button className='link-btn' onClick={() => navigate('/register')}>
-          Forgot your password?
+          Password dimenticata?
         </button>
 
         <div className='login-footer'>
-          <p>Not registered yet?</p>
+          <p>Non sei ancora registrato?</p>
           <button className='link-btn' onClick={() => navigate('/register')}>
-            Register here
+            Registrati qui
           </button>
         </div>
 
         <button className='back-home-btn' onClick={() => navigate('/')}>
-          Return to Home
+          Torna alla Home
         </button>
       </div>
     </div>
