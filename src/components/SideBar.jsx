@@ -1,7 +1,6 @@
 import React from 'react';
 import './SideBar.css';
 
-// Dati finti per provare lo scroll
 const negozi = Array.from({ length: 20 }, (_, i) => ({
   id: i,
   nome: `Negozio ${i + 1}`,
@@ -14,7 +13,7 @@ const SideBar = ({ openStoreCard }) => {
     <div className='sidebar-container'>
       <div className='sidebar-header'>
         <button className='sort-btn' onClick={() => console.log('Ordina')}>
-          Ordina per ▼
+          Order by ▼
         </button>
       </div>
       <div className='sidebar-list'>

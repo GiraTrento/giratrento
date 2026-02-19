@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-page-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe5ac;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-card {
+  background-color: #fff9ed;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(194, 69, 9, 0.15);
+  width: 100%;
+  max-width: 500px;
+  color: #c24509;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 64px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  margin-top: 0;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 66px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-left: 2px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e6cca0;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 16px;
+  color: #c24509;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #c24509;
+  box-shadow: 0 0 0 3px rgba(194, 69, 9, 0.1);
+}
+
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-btn-page {
+  margin-top: 10px;
+  padding: 14px;
+  background-color: #c24509;
+  color: #ffe5ac;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-btn-page:hover {
+  background-color: #a03505;
+}
+
+.login-footer {
+  margin-top: 25px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.link-btn {
+  background: none;
+    text-align: left;
+  border: none;
+  font-size: 14px;
+  padding: 0;
+  color: #c24509;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.back-home-btn {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: #c24509;
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.back-home-btn:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
