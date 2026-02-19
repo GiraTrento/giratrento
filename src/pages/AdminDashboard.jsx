@@ -185,7 +185,6 @@ const ProposteTab = () => {
       await updateActivity(editingId, dataToSave);
       setProposte(proposte.filter((p) => p._id !== editingId));
       setEditingId(null);
-      alert('Attività modificata, approvata e pubblicata!');
     } catch (error) {
       console.error('Errore salvataggio:', error);
       alert('Impossibile salvare le modifiche.');
@@ -329,10 +328,8 @@ const AttivitaTab = () => {
 
       setAttivita(attivita.map((a) => (a._id === editingId ? { ...a, ...dataToSave } : a)));
       setEditingId(null);
-      alert('Attività aggiornata con successo!');
     } catch (error) {
       console.error('Errore salvataggio:', error);
-      alert('Impossibile salvare le modifiche.');
     }
   };
 
@@ -449,7 +446,6 @@ const UtentiTab = () => {
     try {
       await updateUserRole(id, newRole);
       setUtenti(utenti.map((u) => (u._id === id ? { ...u, role: newRole } : u)));
-      alert('Ruolo aggiornato!');
     } catch (error) {
       console.error('Errore modifica ruolo:', error);
       alert(error.response?.data?.message || 'Impossibile modificare il ruolo.');
