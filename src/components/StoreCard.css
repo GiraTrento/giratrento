@@ -3,13 +3,13 @@
   top: 15vh;
   height: 80vh; 
   left: 380px; 
-  width: 450px; /* Leggermente allargato per far respirare le recensioni */
+  width: 450px;
   background-color: #fff9ed;
   border: 2px solid #e6cca0;
   border-radius: 20px;
   overflow: hidden; 
   box-shadow: 0 10px 40px rgba(194, 69, 9, 0.15);
-  z-index: 9999;
+  z-index: 7000;
   display: flex;
   flex-direction: column;
   color: #c24509;
@@ -22,7 +22,6 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* La nuova X per chiudere, posizionata in modo assoluto per non rubare spazio */
 .close-btn-x {
   position: absolute;
   top: 15px;
@@ -43,7 +42,7 @@
 
 .store-card-content {
   padding: 30px;
-  padding-top: 40px; /* Spazio in alto per non sormontare la X */
+  padding-top: 40px;
   overflow-y: auto;
 }
 
@@ -53,10 +52,9 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   line-height: 1.1;
-  padding-right: 30px; /* Evita che il testo vada sotto la X */
+  padding-right: 30px;
 }
 
-/* Contenitore per allineare categoria e media recensioni */
 .store-meta {
   display: flex;
   align-items: center;
@@ -85,7 +83,6 @@
   margin-bottom: 25px;
 }
 
-/* Stile per la descrizione senza titolo */
 .store-description-box {
   background-color: rgba(230, 204, 160, 0.2);
   border-left: 4px solid #c24509;
@@ -121,7 +118,6 @@
   border-bottom: 1px solid rgba(230, 204, 160, 0.5);
 }
 
-/* -- Stili Form Recensioni -- */
 .add-review-form {
   background-color: white;
   padding: 15px;
@@ -182,7 +178,6 @@
   opacity: 0.9;
 }
 
-/* -- Stili Lista Recensioni -- */
 .no-reviews {
   font-size: 14px;
   opacity: 0.7;

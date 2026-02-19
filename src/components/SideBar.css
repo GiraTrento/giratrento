@@ -24,25 +24,6 @@
   filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.2));
 }
 
-.sort-btn {
-  width: 100%;
-  padding: 10px;
-  background-color: #c24509;
-  color: #ffe5ac;
-  border: none;
-  border-radius: 16px;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.2s;
-}
-
-.sort-btn:hover {
-  background-color: #ffe5ac;
-}
-
 .search-input {
   width: 100%;
   padding: 10px;
