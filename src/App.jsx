@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminDashboard from './pages/AdminDashboard';
+import MerchantDashboard from './pages/MerchantDashboard';
 import SuggestActivityPage from './pages/SuggestActivityPage';
 import StoreFront from './pages/StoreFront';
 
@@ -21,7 +22,9 @@ function App() {
 
         <Route path='/profile' element={<ProfilePage />} />
 
-        <Route path='/dashboard' element={<AdminDashboard />} />
+        <Route path='/admin-dashboard' element={<AdminDashboard />} />
+
+        <Route path='/merchant-dashboard' element={<MerchantDashboard />} />
 
         <Route path='/suggest' element={<SuggestActivityPage />} />
 

@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffe5ac;
+  background-color: #09290d;
   font-family: 'Inter', sans-serif;
 }
 
@@ -110,7 +110,7 @@
 
 .link-btn {
   background: none;
-    text-align: left;
+  text-align: left;
   border: none;
   font-size: 14px;
   padding: 0;

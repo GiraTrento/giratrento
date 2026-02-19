@@ -15,9 +15,6 @@ const FiltersBar = ({ isOpen, onClose, selectedCategory, onSelectCategory }) => 
       <div className={`filters-overlay ${isOpen ? 'open' : ''}`} onClick={onClose}></div>
 
       <div className={`filtersbar ${isOpen ? 'open' : ''}`}>
-        <div className='filters-header'>
-          <h2>Seleziona le Categorie</h2>
-        </div>
         <div className='filters-content'>
           {categoriesData.map((cat) => {
             const isSelected = selectedCategory === cat.name;

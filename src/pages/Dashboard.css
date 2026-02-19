@@ -1,6 +1,6 @@
 .dashboard-container {
   min-height: 100vh;
-  background-color: #ffe5ac;
+  background-color: #09290d;
   font-family: 'Inter', sans-serif;
   color: #c24509;
   display: flex;
@@ -246,3 +246,4 @@
   justify-content: flex-end;
   margin-top: 5px;
 }
+

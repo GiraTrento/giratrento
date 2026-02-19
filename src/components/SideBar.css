@@ -5,7 +5,7 @@
   width: 350px;
   height: 100%;
 
-  background-color: #073b11;
+  background-color: #09290d;
 
   z-index: 5000;
   overflow-y: auto;
@@ -16,7 +16,7 @@
 
 .sidebar-header {
   padding: 15px 20px 15px 106px;
-  background-color: #073b11;
+  background-color: #09290d;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -52,7 +52,7 @@
 }
 
 .shop-card {
-  background-color: #ffe5ac;
+  background-color: #fff9ed;
 
   border: 2px solid #c24509;
 

@@ -24,6 +24,7 @@
   width: 300px;
   height: 100vh;
   background-color: #c24509;
+  font-family: sans-serif;
   color: white;
   z-index: 8001;
   transform: translateX(100%);
@@ -100,11 +101,12 @@
 .filter-btn {
   width: 100%;
   padding: 14px 20px;
+  background-color: #fff9ed;
   font-size: 16px;
   font-weight: bold;
   border-width: 2px;
   border-style: solid;
-  border-radius: 12px;
+  border-radius: 20px;
   cursor: pointer;
   text-align: left;
   transition: all 0.3s ease;

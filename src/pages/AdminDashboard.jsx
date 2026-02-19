@@ -13,7 +13,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import './AdminDashboard.css';
+import './Dashboard.css';
 
 import { getActivities } from '../api/activityService';
 import {

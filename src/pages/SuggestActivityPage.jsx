@@ -3,14 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { suggestActivity } from '../api/activityService';
 import './SuggestActivityPage.css';
 
-// --- IMPORTAZIONI PER LA MAPPA ---
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import markerShadowPng from 'leaflet/dist/images/marker-shadow.png';
 
-// FIX per l'icona del segnalino (Vite a volte "perde" le immagini di default di Leaflet)
 const defaultIcon = new Icon({
   iconUrl: markerIconPng,
   shadowUrl: markerShadowPng,
@@ -18,11 +16,9 @@ const defaultIcon = new Icon({
   iconAnchor: [12, 41],
 });
 
-// COMPONENTE INVISIBILE CHE ASCOLTA I CLICK SULLA MAPPA
 const MapClickHandler = ({ formData, setFormData }) => {
   useMapEvents({
     click(e) {
-      // Quando clicchi, aggiorna lo stato del form con le nuove coordinate
       setFormData((prev) => ({
         ...prev,
         lat: e.latlng.lat,
@@ -31,12 +27,10 @@ const MapClickHandler = ({ formData, setFormData }) => {
     },
   });
 
-  // Se ci sono lat e lng nel form, mostra il segnalino
   return formData.lat && formData.lng ? (
     <Marker position={[formData.lat, formData.lng]} icon={defaultIcon} />
   ) : null;
 };
-// ---------------------------------
 
 const SuggestActivityPage = () => {
   const navigate = useNavigate();
@@ -109,12 +103,12 @@ const SuggestActivityPage = () => {
     return (
       <div className='suggest-container'>
         <div className='suggest-card success-card'>
-          <h1>🎉 Grazie!</h1>
+          <h1>Grazie!</h1>
           <p>
             La tua attività è stata inviata con successo ed è in attesa di approvazione da parte di
             un amministratore.
           </p>
-          <button className='back-btn' onClick={() => navigate('/')}>
+          <button className='back-home-btn' onClick={() => navigate('/')}>
             Torna alla Home
           </button>
         </div>
@@ -122,7 +116,6 @@ const SuggestActivityPage = () => {
     );
   }
 
-  // Coordinate di default su Trento se l'utente non ha ancora cliccato
   const defaultCenter = [46.0678, 11.121];
 
   return (
@@ -184,7 +177,6 @@ const SuggestActivityPage = () => {
             />
           </div>
 
-          {/* --- INIZIO SEZIONE MAPPA --- */}
           <div className='input-group' style={{ marginTop: '20px' }}>
             <label style={{ marginBottom: '10px', display: 'block' }}>
               Posizione sulla mappa *{' '}
@@ -193,10 +185,6 @@ const SuggestActivityPage = () => {
               </span>
             </label>
 
-            {/* IL TRUCCO DEFINITIVO: 
-              1. Altezza fissa in pixel DIRETTAMENTE nel MapContainer
-              2. zIndex: 1 per evitare che copra l'intera pagina 
-            */}
             <MapContainer
               center={defaultCenter}
               zoom={13}
@@ -207,7 +195,7 @@ const SuggestActivityPage = () => {
                 width: '100%',
                 borderRadius: '8px',
                 border: '2px solid #e6cca0',
-                zIndex: 1 /* Fondamentale per non farlo sovrapporre a tutto */,
+                zIndex: 1,
               }}
             >
               <TileLayer
@@ -217,7 +205,6 @@ const SuggestActivityPage = () => {
               <MapClickHandler formData={formData} setFormData={setFormData} />
             </MapContainer>
 
-            {/* Mostra le coordinate sotto la mappa */}
             {formData.lat && (
               <div
                 style={{
@@ -235,7 +222,6 @@ const SuggestActivityPage = () => {
               </div>
             )}
           </div>
-          {/* --- FINE SEZIONE MAPPA --- */}
 
           {error && <p className='error-message'>{error}</p>}
           <button type='submit' className='submit-btn' disabled={isLoading}>
