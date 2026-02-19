@@ -1,0 +1,127 @@
+.suggest-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe5ac;
+  font-family: 'Inter', sans-serif;
+  padding: 40px 20px;
+}
+
+.suggest-card {
+  background-color: #fff9ed;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(194, 69, 9, 0.15);
+  width: 100%;
+  max-width: 500px;
+  color: #c24509;
+}
+
+.success-card {
+  text-align: center;
+}
+
+.suggest-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.suggest-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.suggest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e6cca0;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 15px;
+  color: #c24509;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.coordinates-group {
+  display: flex;
+  gap: 15px;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  padding: 14px;
+  background-color: #c24509;
+  color: #ffe5ac;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #a03505;
+}
+
+.cancel-btn,
+.back-btn {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: #c24509;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Stili per la mappa interattiva */
+.map-group label span {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-left: 5px;
+}
+
+.map-wrapper {
+  height: 250px; /* Altezza fissa fondamentale per Leaflet */
+  width: 100%;
+  border: 2px solid #e6cca0;
+  border-radius: 8px;
+  overflow: hidden; /* Mantiene i bordi arrotondati anche per la mappa */
+  margin-top: 5px;
+}
+
+.selected-coords {
+  font-size: 13px;
+  color: #c24509;
+  margin-top: 8px;
+  font-weight: 600;
+  background-color: #fff9ed;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid #e6cca0;
+}

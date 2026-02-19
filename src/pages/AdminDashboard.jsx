@@ -14,7 +14,7 @@ const AdminDashboard = () => {
   // 1. Controllo di Sicurezza e Caricamento Dati
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
-    
+
     if (savedUser) {
       const parsedUser = JSON.parse(savedUser);
       // Se non è admin, lo cacciamo via!
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
       await approveActivity(id);
       alert('Attività approvata con successo!');
       // Ricarica la lista per far sparire l'attività appena approvata
-      fetchPendingActivities(); 
+      fetchPendingActivities();
     } catch (err) {
       alert("Errore durante l'approvazione");
     }
@@ -57,7 +57,9 @@ const AdminDashboard = () => {
 
   // 4. Funzione per Rifiutare/Eliminare
   const handleReject = async (id) => {
-    const isConfirmed = window.confirm("Sei sicuro di voler rifiutare ed eliminare questa attività?");
+    const isConfirmed = window.confirm(
+      'Sei sicuro di voler rifiutare ed eliminare questa attività?'
+    );
     if (!isConfirmed) return;
 
     try {
@@ -78,47 +80,43 @@ const AdminDashboard = () => {
   if (!user) return null; // Evita sfarfallii mentre fa i controlli
 
   return (
-    <div className="admin-container">
+    <div className='admin-container'>
       {/* Sidebar / Menu laterale o Header */}
-      <div className="admin-header">
-        <h1>🛠️ Pannello di Controllo Admin</h1>
-        <div className="admin-actions">
+      <div className='admin-header'>
+        <h1>Pannello di Controllo Admin</h1>
+        <div className='admin-actions'>
           <span>Ciao, {user.name}</span>
-          <button className="logout-btn-small" onClick={handleLogout}>Esci</button>
+          <button className='logout-btn-small' onClick={handleLogout}>
+            Esci
+          </button>
         </div>
       </div>
 
-      <div className="admin-content">
+      <div className='admin-content'>
         <h2>Attività in attesa di approvazione</h2>
-        
+
         {isLoading ? (
           <p>Caricamento in corso...</p>
         ) : error ? (
-          <p className="error-text">{error}</p>
+          <p className='error-text'>{error}</p>
         ) : pendingActivities.length === 0 ? (
-          <div className="empty-state">
-            <p>🎉 Nessuna attività in sospeso! Ottimo lavoro.</p>
+          <div className='empty-state'>
+            <p>Nessuna attività in sospeso! Ottimo lavoro.</p>
           </div>
         ) : (
-          <div className="activities-grid">
+          <div className='activities-grid'>
             {pendingActivities.map((activity) => (
-              <div key={activity._id} className="admin-card">
+              <div key={activity._id} className='admin-card'>
                 <h3>{activity.name}</h3>
-                <p className="activity-category">Categoria: {activity.category}</p>
-                <p className="activity-desc">{activity.description || 'Nessuna descrizione'}</p>
-                
-                <div className="admin-card-buttons">
-                  <button 
-                    className="approve-btn" 
-                    onClick={() => handleApprove(activity._id)}
-                  >
-                    ✅ Approva
+                <p className='activity-category'>Categoria: {activity.category}</p>
+                <p className='activity-desc'>{activity.description || 'Nessuna descrizione'}</p>
+
+                <div className='admin-card-buttons'>
+                  <button className='approve-btn' onClick={() => handleApprove(activity._id)}>
+                    Approva
                   </button>
-                  <button 
-                    className="reject-btn" 
-                    onClick={() => handleReject(activity._id)}
-                  >
-                    ❌ Rifiuta
+                  <button className='reject-btn' onClick={() => handleReject(activity._id)}>
+                    Rifiuta
                   </button>
                 </div>
               </div>

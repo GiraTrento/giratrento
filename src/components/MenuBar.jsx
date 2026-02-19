@@ -27,7 +27,7 @@ const MenuBar = ({ isOpen, onClose, openLogin, openFavorites, openSuggestion }) 
               <button className='menubar-btn' onClick={openFavorites}>
                 Favorites
               </button>
-              <button className='menubar-btn' onClick={openSuggestion}>
+              <button className='menubar-btn' onClick={() => navigate('/suggest')}>
                 Suggest an Activity
               </button>
             </>
