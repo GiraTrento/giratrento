@@ -1,67 +1,88 @@
 import React, { useState, useEffect } from 'react';
-import { getActivities } from '../api/activityService'; // <-- 1. Importa la chiamata API
+import { getActivities } from '../api/activityService';
 import './SideBar.css';
 
+const categoryColors = {
+  Riparazioni: '#B78A66',
+  Sfuso: '#E8B931',
+  'Alimentari Locali': '#14AE5C',
+  'Seconda Mano': '#DB34F2',
+  'Artigianato Locale': '#0091FF',
+};
+
 const SideBar = ({ openStoreCard, selectedCategory }) => {
-  // 2. Inizializza gli stati
-  const [negozi, setNegozi] = useState([]); // Array inizialmente vuoto
+  const [negozi, setNegozi] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // 3. Usa useEffect per scaricare i dati all'avvio
-  // Dentro SideBar.jsx
+  const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     const fetchNegozi = async () => {
       try {
-        // 1. Diciamo a React che stiamo caricando
         setIsLoading(true);
 
-        // 2. Facciamo la chiamata passando il filtro
         const data = await getActivities({ category: selectedCategory });
         setNegozi(data);
       } catch (err) {
         console.error('Errore nel recupero negozi:', err);
         setError('Impossibile caricare i negozi.');
       } finally {
-        // 3. FONDAMENTALE: Diciamo a React che abbiamo finito (sia che sia andata bene, sia in caso di errore)
         setIsLoading(false);
       }
     };
 
     fetchNegozi();
-  }, [selectedCategory]); // Riesegui ogni volta che cambia la categoria
+  }, [selectedCategory]);
+
+  const negoziFiltrati = negozi.filter((negozio) =>
+    negozio.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className='sidebar-container'>
       <div className='sidebar-header'>
-        <button className='sort-btn' onClick={() => console.log('Ordina')}>
-          Order by ▼
-        </button>
+        <input
+          type='text'
+          className='search-input'
+          placeholder='Search...'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
 
       <div className='sidebar-list'>
-        {/* Gestione degli stati visuali (Caricamento, Errore, Lista vuota) */}
         {isLoading && <p style={{ padding: '20px', textAlign: 'center' }}>Caricamento negozi...</p>}
 
         {error && <p style={{ padding: '20px', color: 'red' }}>{error}</p>}
 
-        {!isLoading && !error && negozi.length === 0 && (
+        {!isLoading && !error && negoziFiltrati.length === 0 && (
           <p style={{ padding: '20px', textAlign: 'center' }}>Nessun negozio trovato.</p>
         )}
 
-        {/* Mappatura dei dati REALI del database */}
         {!isLoading &&
           !error &&
-          negozi.map((negozio) => (
-            // Attenzione: MongoDB usa _id con il trattino basso
+          negoziFiltrati.map((negozio) => (
             <div key={negozio._id} className='shop-card' onClick={() => openStoreCard(negozio._id)}>
-              {/* I nomi delle proprietà devono combaciare col tuo schema backend */}
               <h4>{negozio.name}</h4>
 
-              {/* Se non hai 'address' nel GET ma solo coordinate, puoi mostrare altro o la categoria */}
               <p className='shop-address'>{negozio.address || 'Trento'}</p>
 
-              <span className='shop-category'>{negozio.category}</span>
+              <span
+                className='shop-category'
+                style={{
+                  backgroundColor: categoryColors[negozio.category] || '#ccc',
+                  color: 'white',
+                  padding: '4px 8px',
+                  borderRadius: '12px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  display: 'inline-block',
+                  marginTop: '5px',
+                }}
+              >
+                {negozio.category}
+              </span>
             </div>
           ))}
       </div>
