@@ -7,11 +7,11 @@ import './Map.css';
 
 // Mappa dei colori in base alla categoria
 const categoryColors = {
-  'Riparazioni': '#B78A66',
-  'Sfuso': '#E8B931',
+  Riparazioni: '#B78A66',
+  Sfuso: '#E8B931',
   'Alimentari Locali': '#14AE5C',
   'Seconda Mano': '#DB34F2',
-  'Artigianato Locale': '#0091FF'
+  'Artigianato Locale': '#0091FF',
 };
 
 // Funzione per creare un Marker SVG personalizzato con il colore corretto
@@ -31,11 +31,11 @@ const createCustomIcon = (category) => {
     html: svgIcon,
     iconSize: [32, 32],
     iconAnchor: [16, 32], // Il punto esatto che tocca la coordinata (la punta del pin)
-    popupAnchor: [0, -32] // Dove si apre il popup rispetto al pin
+    popupAnchor: [0, -32], // Dove si apre il popup rispetto al pin
   });
 };
 
-const MyMap = () => {
+const MyMap = ({ selectedCategory }) => {
   const position = [46.069692, 11.121089];
   const [activities, setActivities] = useState([]);
 
@@ -43,14 +43,16 @@ const MyMap = () => {
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const data = await getActivities();
-        setActivities(data);
+        // Passiamo il filtro alla funzione API
+        const data = await getActivities({ category: selectedCategory });
+        setActivities(data); // In SideBar si chiama setNegozi(data)
       } catch (error) {
-        console.error("Errore nel caricamento dei negozi per la mappa:", error);
+        console.error('Errore nel caricamento:', error);
       }
     };
+
     fetchActivities();
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <div>
@@ -74,9 +76,9 @@ const MyMap = () => {
           const lng = activity.location.coordinates[0];
 
           return (
-            <Marker 
-              key={activity._id} 
-              position={[lat, lng]} 
+            <Marker
+              key={activity._id}
+              position={[lat, lng]}
               icon={createCustomIcon(activity.category)}
             >
               <Popup>
@@ -85,7 +87,9 @@ const MyMap = () => {
                     {activity.name}
                   </h3>
                   <p style={{ margin: '0 0 10px 0', fontSize: '12px' }}>{activity.category}</p>
-                  <p style={{ margin: '0', fontSize: '13px' }}>{activity.address || 'Indirizzo non specificato'}</p>
+                  <p style={{ margin: '0', fontSize: '13px' }}>
+                    {activity.address || 'Indirizzo non specificato'}
+                  </p>
                 </div>
               </Popup>
             </Marker>
