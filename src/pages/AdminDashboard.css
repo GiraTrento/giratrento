@@ -1,0 +1,124 @@
+.admin-container {
+  min-height: 100vh;
+  background-color: #f4f6f8; /* Sfondo grigio chiarissimo, stile dashboard */
+  font-family: 'Inter', sans-serif;
+}
+
+.admin-header {
+  background-color: #c24509;
+  color: #ffe5ac;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 600;
+}
+
+.logout-btn-small {
+  background-color: transparent;
+  border: 1px solid #ffe5ac;
+  color: #ffe5ac;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn-small:hover {
+  background-color: #ffe5ac;
+  color: #c24509;
+}
+
+.admin-content {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-content h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.admin-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #e0e0e0;
+}
+
+.admin-card h3 {
+  margin: 0 0 10px 0;
+  color: #c24509;
+}
+
+.activity-category {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+.activity-desc {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.admin-card-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.approve-btn, .reject-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.approve-btn {
+  background-color: #4CAF50; /* Verde per approvare */
+  color: white;
+}
+
+.reject-btn {
+  background-color: #f44336; /* Rosso per rifiutare */
+  color: white;
+}
+
+.approve-btn:hover, .reject-btn:hover {
+  opacity: 0.8;
+}
+
+.empty-state {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}

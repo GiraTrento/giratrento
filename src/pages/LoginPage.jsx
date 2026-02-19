@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../api/authService';
 import './LoginPage.css';
 
 const LoginPage = () => {
@@ -11,13 +12,14 @@ const LoginPage = () => {
   });
 
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
@@ -26,11 +28,28 @@ const LoginPage = () => {
       return;
     }
 
-    if (formData.email === 'admin' && formData.password === '1234') {
-      alert('Login effettuato!');
-      navigate('/');
-    } else {
-      setError('Credenziali non valide (usa admin / 1234)');
+    setIsLoading(true);
+
+    try {
+      const data = await login(formData.email, formData.password);
+
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+
+      navigate('/profile');
+    } catch (err) {
+      if (err.response) {
+        const serverMessage = err.response.data.message || err.response.data.error || 'Credenziali non valide.';
+        setError(serverMessage);
+        
+      } else if (err.request) {
+        setError('Impossibile contattare il server. Controlla la tua connessione.');
+        
+      } else {
+        setError('Si è verificato un errore imprevisto.');
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -63,16 +82,16 @@ const LoginPage = () => {
             />
           </div>
 
-          <button className='link-btn' onClick={() => navigate('/register')}>
-            Forgot your password?
-          </button>
-
           {error && <p className='error-message'>{error}</p>}
 
           <button type='submit' className='login-btn-page'>
             Login
           </button>
         </form>
+
+        <button className='link-btn' onClick={() => navigate('/register')}>
+          Forgot your password?
+        </button>
 
         <div className='login-footer'>
           <p>Not registered yet?</p>

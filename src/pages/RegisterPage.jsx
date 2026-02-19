@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { register } from '../api/authService';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
@@ -13,6 +14,7 @@ const RegisterPage = () => {
   });
 
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +24,7 @@ const RegisterPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
@@ -36,10 +38,30 @@ const RegisterPage = () => {
       return;
     }
 
-    console.log('Dati registrazione:', formData);
-    alert('Registration successful!');
+    setIsLoading(true);
 
-    navigate('/');
+    try {
+      await register({
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        role: 'user', // Impostiamo il ruolo base di default
+      });
+
+      navigate('/login');
+    } catch (err) {
+      if (err.response) {
+        const serverMessage =
+          err.response.data.message || err.response.data.error || 'Credenziali non valide.';
+        setError(serverMessage);
+      } else if (err.request) {
+        setError('Impossibile contattare il server. Controlla la tua connessione.');
+      } else {
+        setError('Si è verificato un errore imprevisto.');
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
