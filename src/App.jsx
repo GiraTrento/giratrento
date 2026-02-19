@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminDashboard from './pages/AdminDashboard';
 import SuggestActivityPage from './pages/SuggestActivityPage';
+import StoreFront from './pages/StoreFront';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path='/dashboard' element={<AdminDashboard />} />
 
         <Route path='/suggest' element={<SuggestActivityPage />} />
+
+        <Route path='/vetrina/:id' element={<StoreFront />} />
       </Routes>
     </BrowserRouter>
   );

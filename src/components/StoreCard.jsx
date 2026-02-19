@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // NUOVO IMPORT
 import { addReview } from '../api/activityService';
 import './StoreCard.css';
 
@@ -15,6 +16,9 @@ const StoreCard = ({ store, onClose }) => {
   const [newComment, setNewComment] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [reviewError, setReviewError] = useState('');
+  
+  // HOOK PER LA NAVIGAZIONE
+  const navigate = useNavigate();
 
   if (!store) return null;
 
@@ -60,6 +64,7 @@ const StoreCard = ({ store, onClose }) => {
       setIsSubmitting(false);
     }
   };
+
   return (
     <div className='store-card-panel'>
       <button className='close-btn-x' onClick={onClose}>
@@ -92,25 +97,23 @@ const StoreCard = ({ store, onClose }) => {
           </div>
         )}
 
-        {store.products && store.products.length > 0 && (
-          <div className='store-section'>
-            <h3>Vetrina Prodotti</h3>
-            <ul className='product-list'>
-              {store.products.map((product, index) => (
-                <li key={index} className='product-item'>
-                  <span>{product.name}</span>
-                  <strong>€ {product.price.toFixed(2)}</strong>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* --- NUOVO BOTTONE VETRINA --- */}
+        <div className='store-section vetrina-link-section'>
+          <button 
+            className='btn-vetrina-online'
+            onClick={() => navigate(`/vetrina/${store._id}`, { state: { store } })}
+          >
+            Visita la Vetrina Online
+          </button>
+        </div>
+        {/* ------------------------------- */}
 
         <div className='store-section'>
           <h3>Recensioni</h3>
 
           <form className='add-review-form' onSubmit={handleSubmitReview}>
             <h4>Lascia una recensione</h4>
+            {reviewError && <p className="error-message">{reviewError}</p>}
             <div className='rating-select'>
               <label>Voto:</label>
               <select value={newRating} onChange={(e) => setNewRating(Number(e.target.value))}>

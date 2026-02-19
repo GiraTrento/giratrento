@@ -219,3 +219,27 @@
   margin: 0;
 }
 
+.vetrina-link-section {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn-vetrina-online {
+  background-color: #c24509;
+  color: #fff9ed;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 10px rgba(194, 69, 9, 0.2);
+  width: 100%;
+}
+
+.btn-vetrina-online:hover {
+  background-color: #a03505;
+  transform: translateY(-2px);
+}
